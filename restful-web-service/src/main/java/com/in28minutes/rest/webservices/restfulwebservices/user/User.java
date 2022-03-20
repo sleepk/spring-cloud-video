@@ -1,7 +1,7 @@
 
 package com.in28minutes.rest.webservices.restfulwebservices.user;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 public class User {
 
@@ -9,9 +9,9 @@ public class User {
 
 	private String name;
 
-	private Date birthDate;
+	private LocalDateTime birthDate;
 
-	public User(Integer id, String name, Date birthDate) {
+	public User(Integer id, String name, LocalDateTime birthDate) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -34,11 +34,11 @@ public class User {
 		this.name = name;
 	}
 
-	public Date getBirthDate() {
+	public LocalDateTime getBirthDate() {
 		return birthDate;
 	}
 
-	public void setBirthDate(Date birthDate) {
+	public void setBirthDate(LocalDateTime birthDate) {
 		this.birthDate = birthDate;
 	}
 
@@ -46,5 +46,4 @@ public class User {
 	public String toString() {
 		return String.format("User [id=%s, name=%s, birthDate=%s]", id, name, birthDate);
 	}
-
 }
