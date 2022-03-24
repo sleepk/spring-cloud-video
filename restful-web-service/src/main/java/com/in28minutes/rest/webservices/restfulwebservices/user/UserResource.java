@@ -1,8 +1,10 @@
 package com.in28minutes.rest.webservices.restfulwebservices.user;
 
+import java.net.URI;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -32,12 +34,12 @@ public class UserResource {
 	}
 	
 	@PostMapping
-	public User createUser(@RequestBody User user) {
+	public ResponseEntity<Object> createUser(@RequestBody User user) {
 		 User savedUser = services.save(user);
-		ServletUriComponentsBuilder.fromCurrentContextPath()
+		URI location = ServletUriComponentsBuilder.fromCurrentContextPath()
 			.path("/{id}").buildAndExpand(savedUser.getId()).toUri();
 		
-		return;
+		return ResponseEntity.created(location).build();
 		
 	}
 
