@@ -3,12 +3,17 @@ package com.in28minutes.rest.webservices.restfulwebservices.user;
 
 import java.time.LocalDateTime;
 
+import javax.validation.constraints.Past;
+import javax.validation.constraints.Size;
+
 public class User {
 
 	private Integer id;
 
+	@Size(min = 2, max = 15, message = "Nome deve ter pelo menos dois caracteres")
 	private String name;
 
+	@Past
 	private LocalDateTime birthDate;
 
 	public User(Integer id, String name, LocalDateTime birthDate) {
