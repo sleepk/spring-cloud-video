@@ -31,16 +31,16 @@ public class UserResource {
 	}
 
 	@GetMapping("/users/{id}")
-	public EntityModel<User> retrieveUser(@PathVariable int id) {
+	public ResponseEntity<EntityModel<User>> retrieveUser(@PathVariable int id) {
 		User user = service.findOne(id);
 
 		if (user == null)
 			throw new UserNotFoundException("id-" + id);
 
 		Link userResourceLink = linkTo(this.getClass()).slash("users").slash(id).withSelfRel();
-		Link addressesResourceLink = linkTo(this.getClass()).slash("users").slash(id).withRel("users");
+		//Link addressesResourceLink = linkTo(this.getClass()).slash("users").slash(id).withRel("users");
 
-		return EntityModel.of(user, userResourceLink, addressesResourceLink);
+		return ResponseEntity.ok(EntityModel.of(user, userResourceLink));
 	}
 
 	@DeleteMapping("/users/{id}")
