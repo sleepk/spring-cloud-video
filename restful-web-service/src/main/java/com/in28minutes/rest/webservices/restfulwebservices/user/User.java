@@ -8,13 +8,13 @@ import javax.validation.constraints.Size;
 
 public class User {
 
-	private Integer id;
+	public Integer id;
 
 	@Size(min = 2, max = 15, message = "Nome deve ter pelo menos dois caracteres")
-	private String name;
+	public String name;
 
 	@Past
-	private LocalDateTime birthDate;
+	public LocalDateTime birthDate;
 
 	public User(Integer id, String name, LocalDateTime birthDate) {
 		super();
