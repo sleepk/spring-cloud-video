@@ -6,7 +6,9 @@ import java.time.LocalDateTime;
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Size;
 
-public class User {
+import org.springframework.hateoas.RepresentationModel;
+
+public class User extends RepresentationModel<User>{
 
 	public Integer id;
 
