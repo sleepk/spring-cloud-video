@@ -18,6 +18,9 @@ public class User extends RepresentationModel<User>{
 	@Past
 	public LocalDateTime birthDate;
 
+	public User() {
+	}
+
 	public User(Integer id, String name, LocalDateTime birthDate) {
 		super();
 		this.id = id;
