@@ -37,8 +37,7 @@ public class UserResource {
 		if (user == null)
 			throw new UserNotFoundException("id-" + id);
 
-		Link userResourceLink = linkTo(this.getClass()).slash("users").slash(id).withSelfRel();
-		//Link addressesResourceLink = linkTo(this.getClass()).slash("users").slash(id).withRel("users");
+		Link userResourceLink = linkTo(this.getClass()).slash("users").slash(id).withRel("all-users");
 
 		return ResponseEntity.ok(EntityModel.of(user, userResourceLink));
 	}
